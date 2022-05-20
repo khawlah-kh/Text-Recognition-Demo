@@ -9,27 +9,51 @@ import SwiftUI
 import Vision
 struct ContentView: View {
     @State var recognisedText = ""
-    let uiImage = UIImage(named: "Image2")
+    @State var isShowingImagePicker = false
+    @State var selectedUIImage : UIImage?
+   // @State var image
     var body: some View {
         VStack{
             Text("Text Recognition Example")
+                .font(.title)
+                .foregroundColor(.pink)
+                .bold()
                 .padding()
-            Image(uiImage: uiImage!)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 300, height: 300)
             
+            Button {
+                self.isShowingImagePicker.toggle()
+            } label: {
+                Text("Select an image 📷")
+                    .bold()
+                    .padding()
+            }
+
+            if selectedUIImage != nil{
+                Image(uiImage: selectedUIImage!)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300, height: 300)
+            }
+           
             Text(recognisedText)
                 .font(.title2)
                 .padding()
             
-        }.onAppear {
-            recognizeText (image: uiImage)
+            Spacer()
+            
+        }
+        .sheet(isPresented: $isShowingImagePicker) {
+            self.loadAndRecognize()
+        } content: {
+            ImagePicker(image:$selectedUIImage)
         }
        
     }
     
-    
+    func loadAndRecognize(){
+        guard let selectedUIImage=selectedUIImage else {return}
+        recognizeText (image: selectedUIImage)
+    }
     private func recognizeText(image : UIImage?){
        
         guard let cgImage = image?.cgImage else{

@@ -13,6 +13,8 @@
 		902DBBD128363F520064E797 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902DBBBF28363F510064E797 /* ContentView.swift */; };
 		902DBBD228363F520064E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 902DBBC028363F520064E797 /* Assets.xcassets */; };
 		902DBBD328363F520064E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 902DBBC028363F520064E797 /* Assets.xcassets */; };
+		90445F7628378A2B00C9E888 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90445F7528378A2B00C9E888 /* ImagePicker.swift */; };
+		90445F7728378A2B00C9E888 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90445F7528378A2B00C9E888 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,7 @@
 		902DBBC528363F520064E797 /* Text Recognition Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text Recognition Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		902DBBCB28363F520064E797 /* Text Recognition Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text Recognition Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		902DBBCD28363F520064E797 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		90445F7528378A2B00C9E888 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				902DBBBE28363F510064E797 /* Text_Recognition_DemoApp.swift */,
-				902DBBBF28363F510064E797 /* ContentView.swift */,
+				90445F74283789E300C9E888 /* View */,
 				902DBBC028363F520064E797 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -76,6 +79,15 @@
 				902DBBCD28363F520064E797 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		90445F74283789E300C9E888 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				902DBBBF28363F510064E797 /* ContentView.swift */,
+				90445F7528378A2B00C9E888 /* ImagePicker.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90445F7628378A2B00C9E888 /* ImagePicker.swift in Sources */,
 				902DBBD028363F520064E797 /* ContentView.swift in Sources */,
 				902DBBCE28363F520064E797 /* Text_Recognition_DemoApp.swift in Sources */,
 			);
@@ -185,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90445F7728378A2B00C9E888 /* ImagePicker.swift in Sources */,
 				902DBBD128363F520064E797 /* ContentView.swift in Sources */,
 				902DBBCF28363F520064E797 /* Text_Recognition_DemoApp.swift in Sources */,
 			);
