@@ -8,15 +8,15 @@
 import SwiftUI
 import Vision
 struct ContentView: View {
+    
     @State var recognisedText = ""
     @State var isShowingImagePicker = false
     @State var selectedUIImage : UIImage?
-   // @State var image
+    
     var body: some View {
         VStack{
             Text("Text Recognition Example")
                 .font(.title)
-                .foregroundColor(.pink)
                 .bold()
                 .padding()
             
@@ -24,6 +24,7 @@ struct ContentView: View {
                 self.isShowingImagePicker.toggle()
             } label: {
                 Text("Select an image 📷")
+                    .font(.title3)
                     .bold()
                     .padding()
             }
@@ -54,16 +55,13 @@ struct ContentView: View {
         guard let selectedUIImage=selectedUIImage else {return}
         recognizeText (image: selectedUIImage)
     }
+    
+    
     private func recognizeText(image : UIImage?){
-       
-        guard let cgImage = image?.cgImage else{
-           
-            return}
-      //  to recognise a text :
-        //Handler
+        guard let cgImage = image?.cgImage else{return}
+        
         let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
        
-        //Request
         let request = VNRecognizeTextRequest { request, error in
             guard let observations = request.results as? [VNRecognizedTextObservation],error == nil else {
                 return}
@@ -71,18 +69,11 @@ struct ContentView: View {
             }.joined(separator: " ")
             DispatchQueue.main.async {
                 self.recognisedText = text
-
             }
-           
-        }
-        //Process Request
-        do{
-            try handler.perform([request])
-        }
-        catch{
-            print(error)
         }
         
+        do{ try handler.perform([request]) }
+        catch{ print(error) }
     }
 }
 
